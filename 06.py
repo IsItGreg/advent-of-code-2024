@@ -69,7 +69,7 @@ def part2():
                 continue
             hasLoop = False
             rows[i][j] = '#'
-            history = []
+            history = set()
             while True:
                 nextPos = (tGuardPos[0] + directions[tDirection][0], tGuardPos[1] + directions[tDirection][1])
                 if nextPos[0] < 0 or nextPos[0] >= len(rows) or nextPos[1] < 0 or nextPos[1] >= len(rows[nextPos[0]]):
@@ -81,7 +81,7 @@ def part2():
                 if (tGuardPos, tDirection) in history:
                     hasLoop = True
                     break
-                history.append((tGuardPos, tDirection))   
+                history.add((tGuardPos, tDirection))   
 
             rows[i][j] = '.'
             if hasLoop:
